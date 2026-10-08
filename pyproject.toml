@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doc-provenance-pipeline"
+version = "0.1.0"
+description = "Process mixed documents into searchable units that keep their source identity, page location and an honest processing status."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "doc-provenance-pipeline" }]
+keywords = ["pdf", "ocr", "provenance", "fts5", "document-processing"]
+
+dependencies = [
+    "pymupdf==1.26.6",
+    "pdfplumber==0.11.7",
+    "pytesseract==0.3.13",
+    "python-docx==1.2.0",
+    "pillow==12.0.0",
+]
+
+[project.optional-dependencies]
+# Only needed for `build --describe-images`, which is OFF by default. This pin
+# is the version whose `beta.messages.create` was checked to accept the `betas`
+# and `fallbacks` parameters `dpp.describe` passes.
+describe = ["anthropic==1.12.1"]
+dev = ["pytest==9.0.1"]
+
+[project.scripts]
+dpp = "dpp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

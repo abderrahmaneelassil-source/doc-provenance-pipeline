@@ -1,0 +1,18 @@
+# Pipeline output: database, content-addressed image store, extracted archive
+# members and LibreOffice conversions. All reproducible from `build`.
+work/
+
+# samples/ is deliberately NOT ignored: the sample documents are part of the
+# deliverable, they are public-domain US Government works, and `SOURCES.md`
+# records where each one came from. `work/candidates/` holds the raw downloads
+# the two derived samples are built from, and is reproducible, so it goes.
+
+src/*.egg-info/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage

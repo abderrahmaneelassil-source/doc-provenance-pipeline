@@ -1,0 +1,19 @@
+# The build only needs pyproject.toml, README.md and src/. Keeping the context
+# small matters here: samples/ is ~30 MB of PDFs and work/ holds the whole
+# index, and both are mounted as volumes at run time instead.
+work/
+samples/
+tests/
+tools/
+.venv/
+.git/
+.github/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+Dockerfile
+.dockerignore
